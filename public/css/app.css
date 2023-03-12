@@ -4,10 +4,28 @@ body {
   color: #232323;
 }
 
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
 .navbar-brand > img {
   width: 21%;
   height: 21%;
   padding: 0%;
+}
+
+.navitem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cartCounter {
+  font-family: system-ui;
+  font-size: 1rem;
 }
 
 .cart > img {
@@ -16,6 +34,10 @@ body {
   margin-top: -20%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+#logout {
+  cursor: pointer;
 }
 
 .nav-link {
@@ -30,10 +52,20 @@ body {
   margin-left: 10%;
 }
 
+.username {
+  font-style: oblique;
+  text-transform: uppercase;
+  color: rgb(255, 0, 34);
+  font-weight: bold;
+}
+
+.hero {
+  margin-top: 6rem;
+}
+
 .menu {
   margin-top: 15%;
   display: grid;
-  border: 2px solid red;
 }
 
 .card-image {
@@ -54,20 +86,21 @@ body {
 
 .card {
   border: 2px solid red;
-  margin: 10 40px;
+  margin: 8% 4%;
+  background: linear-gradient(whitesmoke 70%, rgb(255, 245, 227));
   text-align: center;
 }
 
 .card-image {
-  height: 15rem;
-  width: 15rem;
+  height: 9rem;
+  width: 9rem;
 }
 
 .card .add-to-cart {
   border: 2px solid rgb(255, 77, 0);
   border-radius: 5px;
   color: rgb(255, 77, 0);
-  background: none;
+  background: #fff;
   transition: all 0.3s ease-in-out;
   margin-bottom: 5%;
 }
@@ -76,4 +109,32 @@ body {
   color: white;
   border-color: #fff;
   box-shadow: 2px 2px 20px 2px rgb(133, 76, 33);
+}
+
+.order-now {
+  background: #fe5f1e;
+  letter-spacing: 2px;
+  transition: all 0.3s ease-in-out;
+}
+.order-now:hover {
+  background: #fe5f1e;
+  color: white;
+  border-color: #fff;
+  box-shadow: 2px 2px 20px 2px rgb(133, 76, 33);
+}
+
+.order-content {
+  margin-bottom: 3.5rem;
+}
+
+@media screen and (max-width: 991px) {
+  .cart > img {
+    width: 16%;
+    margin-top: -4%;
+  }
+}
+@media screen and (max-width: 770px) {
+  .card {
+    width: 35%;
+  }
 }

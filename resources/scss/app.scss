@@ -5,18 +5,34 @@ body{
     -webkit-font-smoothing : antialiased ; 
     color: $dark;
 }
-
+.navbar{
+    position:fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2; 
+}
 .navbar-brand > img {
     width: 21%;
     height: 21%;
     padding: 0%;
+}
+.navitem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cartCounter{
+    font-family: system-ui;
+    font-size:1rem;
 }
 .cart > img {
     width: 64%; height: 3.3rem ;
     margin-top: -20%;
     object-fit: cover;
 }
-
+#logout{
+    cursor: pointer;
+}
 .nav-link{
     transition: $smooth ;
     &:hover{
@@ -28,15 +44,25 @@ body{
 .welcome {
     margin-left: 10%;
 }
+.username{
+    font-style:oblique;
+    text-transform: uppercase;
+    color: rgb(255, 0, 34);
+    font-weight: bold; 
+}
+.hero{
+    margin-top: 6rem;
+}
 .menu{
     margin-top: 15%;
     display: grid;
-    border: 2px solid red;
-    // place-items: center;
+    
 }
 .card-image{
     height: 20%;  
 }
+
+
 .cart > img {
     width: 64%; height: 3.3rem ;
     margin-top: -20%;
@@ -47,18 +73,19 @@ body{
 }
 .card{
     border: 2px solid red;
-    margin: 10 40px;
+    margin:  8% 4%;
+    background: linear-gradient(whitesmoke 70%, rgb(255, 245, 227));
     text-align: center;
 }
 .card-image{
-    height: 15rem;
-    width: 15rem;
+    height: 9rem;
+    width: 9rem;
 }
 .card .add-to-cart{
     border:2px solid rgb(255, 77, 0);
     border-radius: 5px;
     color: rgb(255, 77, 0);
-    background: none;
+    background:#fff;
     transition: $smooth;
     margin-bottom: 5% ;
     &:hover{
@@ -69,3 +96,32 @@ body{
     
     }
 }
+.order-now{
+    background:$primary;
+    letter-spacing: 2px;
+    transition: $smooth;
+    &:hover{
+        background: $primary; 
+        color:white ;
+        border-color:$pure;
+        box-shadow: 2px 2px 20px 2px rgb(133, 76, 33);
+    
+    }
+}
+ .order-content{
+    margin-bottom: 3.5rem;
+ }
+@media screen and (max-width: 991px) {
+    .cart > img {
+      width: 16%;
+      margin-top: -4%;
+    }
+  }
+  
+  @media screen and (max-width: 770px) {
+    .card{
+        width: 35%;
+    }
+   
+  }
+  

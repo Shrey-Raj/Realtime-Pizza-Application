@@ -1,0 +1,165 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{! Google font  }}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    {{!-- FontAwesome  --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.0/css/all.min.css" integrity="sha512-AyOHI/tIMgoG+32apAs3OdqFowPSDqiz5vLcD2wdhBJ4J/xF1PI6UITcyhS5HCmsiioapRaONqYBvimxzFfnoA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Cart</title>
+
+    {{! Bootstrap }}
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    {{!-- FontAwesome --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <link rel="stylesheet" href="/css/app.css" />
+  </head>
+  <style>
+    .summary-cart{
+    width: 8%;
+    height: 8%;
+    margin-right: 5%;
+    }
+    .pizza-details{
+        width: 40%;
+    }
+    .pizza-details h5 span{
+    font-family: 'Courier New';
+    font-size: 83%;
+    }
+    .navbar{
+      position:relative;
+    }
+    a{
+      text-decoration: none;
+      color: #fff;
+    }
+    #message{
+      font-size: 1.2rem;
+      background: rgb(236, 56, 56);
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+  </style>
+
+<body>
+    {{>navbar}}
+
+    {{#if message}}
+      <span id="message">
+        {{message}}</span>
+    {{/if}}
+
+
+     {{!-- If cart is empty  --}}
+        {{#unless cartList}}
+        <div class="text-center d-flex flex-column ">
+        <h2 class="fw-bold display-5 mb-3">Cart Empty</h2>
+        <p><em>What are you waiting for ?</em> <br> <span class="display-6">Order now  !!  </span></p>
+        <img class="mx-auto" src="/img/empty-cart.png" alt="">
+        <button class="col-md-3 mb-3 mx-auto order-now px-6 py-2 rounded-3 text-white fw-bold mt-4 border"><a href="/">GO BACK</a></button>
+    </div>
+
+{{!-- If cart is Not Empty --}}
+      {{else}}
+
+
+    <div class="cart conatainer w-50 mx-auto mt-5">
+        <div class="d-flex align-items-center justify-content-center">
+            <img class="summary-cart " src="/img/shopping-cart.png" alt="" srcset="">
+            <h1 class="fs-3 text-danger">Order Summary</h1>
+        </div>
+        <hr>
+
+   
+{{!-- Display the cart Contents --}}
+    {{#each cartList}}
+        <div class="order-content d-flex align-items-center justify-content-between ">
+            <div class="pizza-details d-flex align-items-center  justify-content-center   p-0 m-0">
+                <img class="  img-fluid w-25" src="/img/pizza-logo.png" alt="">
+                <h5 class="fw-bold">{{this.item.name}}<br> 
+                    <span class="text-muted text-sm h6 m-4">{{this.item.size}}</span>
+                </h5>
+               
+                
+            </div>
+            <h5>{{this.qty}}</h3>
+            <h3>$ {{this.item.price}}</h3>
+        </div>
+
+      {{/each}}
+
+        <hr>
+        <div class="d-flex align-items-center  justify-content-center ">
+            <h6>Total Amount :</h6> 
+            <span class="h4 text-danger fw-bold p-3">$ {{totalPrice}}</span>
+        </div>
+
+
+{{!-- If the user is Already Logged In --}}
+          {{#if name}}
+        <form action="/orders" method="post" class="customer-details mt-5 d-flex flex-column justify-content-end row">
+            <input class="col-md-5" type="text" name="address" id="" placeholder="Address"
+            required>
+
+            <input class="col-md-3 mt-3" type="number" name="phone" id="" placeholder="Phone Number" required>
+
+           <button type="submit" class="order-now px-6 py-2 h-3 rounded-5 text-white fw-bold mt-4 border bg-warning col-md-3">Place Order</button>
+        </form>
+
+          {{else}}
+          <button class="order-now px-6 py-2 h-3 rounded-5 text-white fw-bold mt-4 border col-md-3">
+            <a href="auth/login">
+            Login To Order
+            </a></button>
+
+           {{/if}}
+        
+    </div>
+
+
+        {{/unless}}
+    
+
+
+
+    {{! bootstrap }}
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="../../js/app.js"></script>
+
+    <script>
+      const Swal = require("sweetalert2");
+      const message = document.getElementById('message') ; 
+
+      if(message.textContent){
+           Swal.fire({
+          icon: "error",
+          title: "OOPS! Something Went Wrong . Try Again",
+          timer: 2000,
+          position: "top-end",
+        });
+        }
+    </script>
+
+</body>
+
+</html>
