@@ -1,3 +1,4 @@
 node_modules
 .env
 pizzalist.json
+.plan.txt

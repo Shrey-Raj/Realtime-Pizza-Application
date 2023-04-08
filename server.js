@@ -1,5 +1,5 @@
 require('dotenv').config() ; 
-const express = require("express");
+const express = require("express"); 
 const app = express();
 const hbs = require("hbs");
 const exphbs  = require('express-handlebars');
@@ -61,9 +61,6 @@ app.use(bodyParser.json());
 app.set("views", "resources/views");
 app.set("view engine", "hbs");
 hbs.registerPartials("resources/views/partials");
-
-
-  
 
 const PORT = process.env.PORT || 3005;
 
