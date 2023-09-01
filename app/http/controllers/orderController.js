@@ -19,7 +19,7 @@ function orderController() {
 
         const customerName = req.session.name;
         console.log(
-          "Printing Cistomer Name in OrderController : ",
+          "Printing Customer Name in OrderController : ",
           customerName
         );
 

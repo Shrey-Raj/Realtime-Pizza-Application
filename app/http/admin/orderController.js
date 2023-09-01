@@ -30,8 +30,7 @@ function orderController() {
               { sort: { timestamp: -1 } }
             );
 
- 
-            // console.log(AllOrders);
+            console.log(AllOrders);
             res.render("admin/orders", {
               AllOrders: AllOrders,
             });

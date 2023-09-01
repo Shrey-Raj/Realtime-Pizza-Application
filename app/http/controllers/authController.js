@@ -67,7 +67,7 @@ function authController() {
           console.log("User not found");
           return res.status(502).render("auth/login", {
             errorMessage: "User Not Found ",
-            email,
+            email : useremail ,
           });
         }
 
@@ -79,17 +79,17 @@ function authController() {
           req.session.customerId = user._id;
 
           res.redirect(302, "/");
-        } else {
+        } else { 
           return res.render("auth/login", {
             errorMessage: "Invalid Email or Password",
-            email,
+            email : useremail ,
           });
         }
       } catch (err) {
         console.log(err, "Error in Logging In");
         return res.status(404).render("auth/login", {
           errorMessage: "Some error Occured in Logging the user",
-          email,
+          email : useremail 
         });
       }
     },
@@ -129,7 +129,7 @@ function authController() {
         .catch((err) => {
           console.log(err , 'Error in LOGOUT IN AUTH-CONTROLLER');
           res.redirect("home" , {message:"Error in Logging Out" , name:req.session.name});
-        });
+        }); 
 
       
     },

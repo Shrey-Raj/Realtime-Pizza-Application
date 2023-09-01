@@ -1,7 +1,7 @@
 const Order = require("../../models/order");
 
 function statusController() {
-  return {
+  return { 
     update(req, res) {
       Order.updateOne({ _id: req.body.orderId }, { status: req.body.status })
         .then((result) => {
