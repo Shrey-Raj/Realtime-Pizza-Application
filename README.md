@@ -57,5 +57,10 @@ We welcome contributions from the community to improve and enhance *Shrezza*. If
 
 ## Screenshots
 
-![App Screenshot](https://drive.google.com/drive/folders/1ECgUA7AaXkb3uAVAiIv711tDbA2dR5V7)
+![Screenshot (114)](https://github.com/Shrey-Raj/Realtime-Pizza-Application/assets/119098647/010b82e6-f2c4-4d2b-bbb1-531f9db27803)
+
+![Screenshot (115)](https://github.com/Shrey-Raj/Realtime-Pizza-Application/assets/119098647/a356a96c-b1b4-45e2-bb87-690dc8506bc8)
+
+![Screenshot (118)](https://github.com/Shrey-Raj/Realtime-Pizza-Application/assets/119098647/7f12d4c3-d2e3-415f-8a3c-eba377f57916)
+
 
